@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+<body style="color: aliceblue; background-color:black">
+    <div class="container">
+        <table class="table table-dark table-striped">
+            <tr>
+                <th>item</th>
+                <th>item-id</th>
+            </tr>
+            <tr>
+                <td>Apple</td>
+                <td>a1</td>
+            </tr>
+            <tr>
+                <td>Mango</td>
+                <td>a2</td>
+            </tr>
+            <tr>
+                <td>Banana</td>
+                <td>a3</td>
+            </tr>
+            <tr>
+                <td>Grapes</td>
+                <td>a4</td>
+            </tr>
+            <tr>
+                <td>Pears</td>
+                <td>a5</td>
+            </tr>
+            <tr>
+                <td>Orange</td>
+                <td>a6</td>
+            </tr>
+            <tr>
+                <td>Tomato</td>
+                <td>a7</td>
+            </tr>
+            <tr>
+                <td>Kiwi</td>
+                <td>a8</td>
+            </tr>
+            <tr>
+                <td>Pine Apple</td>
+                <td>a9</td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <label for="it">Item-id</label>
+        <input type="item-id" id="it" class="form-control" placeholder="item-id">
+        <label for="i">Quantity</label>
+        <input type="number" id="i" class="form-control" placeholder="quantity">
+        <button style="margin-top: 10px; background-color: aliceblue;" onclick="add()">Add</button>
+        <button style="margin-top: 10px; background-color: rgb(255, 255, 255);" onclick="fin()">Done</button>
+    </div>
+    <div class="container" id="table">
+        <h1 style="color: rgb(255, 255, 255);">Bill</h1>
+        <div class="row">
+            <div class="col-md-4" >Item-id</div>
+            <div class="col-md-4" >Quantity</div>
+            <div class="col-md-4" >Price</div>
+        </div>
+        <div class="row" id="tab">
+
+        </div>
+        <div class="container">
+            <h3 >Total Price </h3>
+            <h6 id="tot"> </h6>
+        </div>
+    </div>
+    <script>
+        let y = 0;
+        let fruit={
+                a1:180,
+                a2:60,
+                a3:30,
+                a4:80,
+                a5:60,
+                a7:200,
+                a8:20,
+                a9:100
+            };
+        function add(){
+            var fetch1=document.getElementById('it').value;
+            var fetch2=document.getElementById('i').value;
+            const out=document.getElementById('tab');
+            
+            var c1=document.createElement('div');
+            c1.setAttribute('class','col-md-4');
+            c1.innerHTML=fetch1;
+            out.appendChild(c1);
+
+            var c2=document.createElement('div');
+            c2.setAttribute('class','col-md-4');
+            c2.innerHTML=fetch2;
+            out.appendChild(c2);
+
+            var c3=document.createElement('div');
+            c3.setAttribute('class','col-md-4');
+            c3.innerHTML=fruit[fetch1]*fetch2;
+            y=y+fruit[fetch1]*fetch2;
+            out.appendChild(c3);
+
+            document.getElementById('tot').innerHTML=y;
+
+        }
+        function fin(){
+            window.alert("This is the total Bill")
+        }
+    </script>
+</body>
+</html>
